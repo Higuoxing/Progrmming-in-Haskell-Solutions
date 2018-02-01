@@ -3,7 +3,7 @@
 - [x] Chapter_1
 - [x] Chapter_2
 - [x] Chapter_4
-- [ ] Chapter_5
+- [x] Chapter_5
 - [ ] Chapter_6
 - [ ] Chapter_7
 - [ ] Chapter_8
