@@ -4,7 +4,7 @@
 - [x] Chapter_2
 - [x] Chapter_4
 - [x] Chapter_5
-- [ ] Chapter_6
+- [x] Chapter_6
 - [ ] Chapter_7
 - [ ] Chapter_8
 - [ ] Chapter_9
