@@ -21,10 +21,32 @@ make8 bits = take 8 (bits ++ repeat 0)
 encode' :: String -> [Bit]
 encode' = concat . map (make8 . int2bin . ord)
 
+-- addCheckBits
+addCheckBits :: [Bit] -> [Bit]
+addCheckBits bits = concat $ [addCheckBit x | x <- (chop8 bits)]
+
+-- addCheckBit
+addCheckBit :: [Bit] -> [Bit]
+addCheckBit bits
+    | ((sum bits) `mod` 2 == 0) = bits ++ [0]
+    | otherwise = bits ++ [1]
+
 -- chop8
 chop8 :: [Bit] -> [[Bit]]
 chop8 [] = []
 chop8 bits = (take 8 bits) : (chop8 . drop 8) bits
+
+-- checkParity
+checkParity :: [Bit] -> [Bit]
+checkParity bits 
+    | [] == bits = []
+    | otherwise = (check (take 9 bits)) ++ checkParity (drop 9 bits)
+
+-- check
+check :: [Bit] -> [Bit]
+check bits
+    | ((sum bits) `mod` 2 == 0) = take 8 bits
+    | otherwise = error "check parity failed"
 
 -- decode'
 decode' :: [Bit] -> String
@@ -32,7 +54,7 @@ decode' = map (chr . bin2int) . chop8
 
 -- transmit
 transmit :: String -> String
-transmit = decode' . channel . encode'
+transmit = decode' . checkParity . channel . addCheckBits . encode'
 
 -- channel
 channel :: [Bit] -> [Bit]
