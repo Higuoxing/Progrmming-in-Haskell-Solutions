@@ -11,9 +11,9 @@ merge (x:xs) (y:ys)
     | y >= x = x : merge xs (y:ys)
 
 msort :: Ord a => [a] -> [a]
-msort [] = []
+msort []  = []
 msort [x] = [x]
-msort xs = merge x1 x2
+msort xs  = merge x1 x2
     where 
         x1 = msort xs1
         x2 = msort xs2
