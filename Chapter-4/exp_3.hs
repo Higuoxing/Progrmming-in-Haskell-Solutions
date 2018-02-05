@@ -9,7 +9,7 @@ safetail xs = if null xs then []
 
 -- guarded equations
 safetail' :: [a] -> [a]
-safetail' xs | null xs = []
+safetail' xs | null xs   = []
              | otherwise = tail xs
 
 -- pattern matching
