@@ -3,11 +3,11 @@ import Data.Char
 upperOrLowers :: String -> Int
 upperOrLowers [] = 0
 upperOrLowers (c:cs) | (isLower c || isUpper c) = 1 + upperOrLowers cs
-                     | otherwise = upperOrLowers cs
+                     | otherwise                = upperOrLowers cs
 
 count :: Char -> String -> Int
 count c [] = 0
-count c (x:xs) | c == x = 1 + count c xs
+count c (x:xs) | c == x    = 1 + count c xs
                | otherwise = count c xs
 
 let2int :: Char -> Int
