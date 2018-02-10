@@ -2,6 +2,7 @@
 
 - [x] Chapter_1
 - [x] Chapter_2
+- [x] Chapter_3
 - [x] Chapter_4
 - [x] Chapter_5
 - [x] Chapter_6
