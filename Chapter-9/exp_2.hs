@@ -1,2 +1,0 @@
-choices :: [a] -> [[a]]
-choices 
